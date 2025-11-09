@@ -1,0 +1,22 @@
+{
+  "name": "FreeBird - Personal Knowledge Base",
+  "short_name": "FreeBird",
+  "description": "Capture work, ideas, and outcomes across all your creative domains",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
