@@ -4,6 +4,7 @@ FreeBird is a Progressive Web App (PWA) that consolidates work tracking, idea ma
 
 ## Features
 
+### Core Features (MVP)
 - **Entry Management**: Create, view, and organize entries across multiple types (ideas, work, outcomes, jobs, education)
 - **Timeline View**: Chronological view of all your entries
 - **Ideas Board**: Trello-style kanban board for managing ideas by status
@@ -14,13 +15,20 @@ FreeBird is a Progressive Web App (PWA) that consolidates work tracking, idea ma
 - **PWA Support**: Install on mobile devices for offline access
 - **Mobile-First Design**: Optimized for quick capture on phones
 
+### Phase 2 Features (AI-Enhanced)
+- **Full-Text Search**: Fast search across all entries with live dropdown results
+- **Export Data**: Download entries in JSON or Markdown format with filters
+- **AI-Powered Related Entries**: Automatically discover connections between entries using Claude AI
+- **Smart Resume Enhancement**: Generate professional descriptions for job/education entries using Claude AI
+
 ## Tech Stack
 
 - **Frontend/Backend**: Next.js 16 with TypeScript
 - **Database**: MongoDB with Mongoose
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
 - **Image Processing**: Sharp
 - **PWA**: next-pwa
+- **AI**: Anthropic Claude API (Claude 3.5 Sonnet)
 
 ## Getting Started
 
@@ -46,6 +54,7 @@ npm install
 Create a `.env.local` file in the root directory:
 ```bash
 MONGODB_URI=mongodb://localhost:27017/freebird
+ANTHROPIC_API_KEY=sk-ant-your-key-here  # Optional: for AI features
 ```
 
 4. Start MongoDB (if running locally):
@@ -62,6 +71,20 @@ npm run dev
 
 ## Production Deployment
 
+**📖 See [DEPLOYMENT.md](DEPLOYMENT.md) for the complete production deployment guide.**
+
+The deployment guide covers:
+- Linux VM setup
+- MongoDB installation and security
+- PM2 process management
+- Nginx reverse proxy configuration
+- SSL/HTTPS with Let's Encrypt
+- Automated backups
+- Performance optimization
+- Troubleshooting
+
+### Quick Deploy
+
 1. Build the application:
 ```bash
 npm run build
@@ -72,13 +95,7 @@ npm run build
 npm start
 ```
 
-### Self-Hosting
-
-FreeBird is designed to be self-hosted on a Linux VM. You can:
-- Run it directly with Node.js
-- Use PM2 for process management
-- Set up Nginx or Caddy as a reverse proxy
-- Optionally containerize with Docker
+For production environments, use PM2 for process management (see deployment guide).
 
 ## Project Structure
 
@@ -104,12 +121,19 @@ FreeBird/
 
 ## API Endpoints
 
+### Core Endpoints
 - `GET /api/entries` - List all entries (supports ?type, ?category, ?tag filters)
 - `POST /api/entries` - Create a new entry
 - `GET /api/entries/[id]` - Get a specific entry
 - `PUT /api/entries/[id]` - Update an entry
 - `DELETE /api/entries/[id]` - Delete an entry
 - `POST /api/upload` - Upload and optimize images
+
+### Phase 2 Endpoints
+- `GET /api/search?q={query}` - Full-text search across all entries
+- `GET /api/export?format={json|markdown}&type={type}&category={category}` - Export entries
+- `POST /api/ai/find-related` - Find related entries using AI (requires ANTHROPIC_API_KEY)
+- `POST /api/ai/enhance-resume` - Generate professional descriptions using AI (requires ANTHROPIC_API_KEY)
 
 ## External Integration
 
