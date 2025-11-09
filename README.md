@@ -111,10 +111,15 @@ FreeBird/
 - `DELETE /api/entries/[id]` - Delete an entry
 - `POST /api/upload` - Upload and optimize images
 
+## External Integration
+
+The API can be used by external apps for enhanced functionality:
+- **Voice Transcription App** - Separate standalone app for voice-to-text entry creation that posts to FreeBird via the API
+- Other quick-capture tools and mobile apps can POST entries via the API endpoints
+
 ## Future Enhancements
 
 Phase 2 features planned:
-- Voice transcription for quick capture
 - Auto-categorization using local vision models
 - Connection surfacing between related projects
 - Smart resume generation using Claude API
