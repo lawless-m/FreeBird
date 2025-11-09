@@ -89,11 +89,13 @@ All entries share common structure but have type-specific fields:
    - Export as PDF or HTML
 
 ### Phase 2 (AI Enhancement - Later)
-1. **Voice Transcription** (separate tool - see below)
-2. **Auto-categorization** from images using local vision models
-3. **Connection surfacing** - "This is similar to project X from 6 months ago"
-4. **Impact tracking** - Group related entries, measure outcomes
-5. **Smart resume generation** - Claude API to write professional descriptions from raw entries
+1. **Auto-categorization** from images using local vision models
+2. **Connection surfacing** - "This is similar to project X from 6 months ago"
+3. **Impact tracking** - Group related entries, measure outcomes
+4. **Smart resume generation** - Claude API to write professional descriptions from raw entries
+
+### External Integration
+- **Voice Transcription App** - Separate standalone app for voice-to-text entry creation that posts to FreeBird via the API
 
 ## UI/UX Considerations
 - Mobile-first (quick capture on phone)
@@ -115,6 +117,7 @@ All entries share common structure but have type-specific fields:
 - Integration with git repos (auto-log commits/PRs)
 - Analytics dashboard (productivity insights)
 - Export formats (Markdown, JSON, PDF)
+- External app integrations via API (voice transcription app, mobile quick-capture, etc.)
 
 ## Notes for Claude Code Implementation
 - Use TypeScript for type safety despite MongoDB being schemaless
